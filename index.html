@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id" class="light-mode">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do Life Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="storage-warning" hidden role="alert">
+    <p>⚠️ Penyimpanan data (Local Storage) tidak tersedia di browser ini. Aplikasi tetap dapat digunakan, namun data tidak akan tersimpan setelah halaman ditutup.</p>
+  </div>
+
+  <header>
+    <div id="clock-widget">
+      <time id="clock-time" aria-label="Waktu saat ini" datetime=""></time>
+      <p id="clock-date" aria-label="Tanggal saat ini"></p>
+      <p id="clock-greeting">
+        <span id="greeting-text"></span>
+        <button id="username-display" aria-label="Klik untuk mengubah nama pengguna"></button>
+      </p>
+      <div id="username-edit" hidden>
+        <label for="username-input" class="sr-only">Nama pengguna</label>
+        <input id="username-input" type="text" maxlength="50" aria-label="Nama pengguna" placeholder="Masukkan nama Anda">
+        <button id="username-save">Simpan</button>
+        <button id="username-cancel">Batal</button>
+      </div>
+    </div>
+    <button id="theme-toggle" aria-label="Ganti tema">☀️</button>
+  </header>
+
+  <main>
+    <div class="dashboard-grid">
+
+      <section id="focus-timer-section" aria-label="Focus Timer">
+        <h2>Focus Timer</h2>
+        <div id="timer-display" aria-live="polite" aria-label="Waktu tersisa">25:00</div>
+        <div id="timer-notification" hidden role="alert"></div>
+        <div class="timer-controls">
+          <button id="timer-start" aria-label="Mulai timer">Start</button>
+          <button id="timer-stop" disabled aria-label="Hentikan timer">Stop</button>
+          <button id="timer-reset" aria-label="Reset timer">Reset</button>
+        </div>
+      </section>
+
+      <section id="todo-section" aria-label="To-Do List">
+        <h2>To-Do List</h2>
+        <form id="todo-form" aria-label="Tambah tugas baru">
+          <label for="todo-input" class="sr-only">Tambah tugas baru</label>
+          <input id="todo-input" type="text" maxlength="200" aria-label="Tambah tugas baru" placeholder="Tambah tugas baru...">
+          <button type="submit" aria-label="Tambahkan tugas">Tambah</button>
+        </form>
+        <p id="todo-warning" role="alert" hidden></p>
+        <ul id="todo-list" aria-label="Daftar tugas" aria-live="polite"></ul>
+      </section>
+
+      <section id="quick-links-section" aria-label="Quick Links">
+        <h2>Quick Links</h2>
+        <form id="link-form" aria-label="Tambah tautan baru">
+          <label for="link-label-input" class="sr-only">Label tautan</label>
+          <input id="link-label-input" type="text" maxlength="50" aria-label="Label tautan" placeholder="Label (contoh: GitHub)">
+          <label for="link-url-input" class="sr-only">URL tautan</label>
+          <input id="link-url-input" type="text" aria-label="URL tautan" placeholder="URL (contoh: https://github.com)">
+          <button type="submit" aria-label="Tambahkan tautan">Tambah</button>
+        </form>
+        <p id="link-warning" role="alert" hidden></p>
+        <ul id="link-list" aria-label="Daftar tautan cepat" aria-live="polite"></ul>
+      </section>
+
+    </div>
+  </main>
+
+  <script type="module" src="js/script.js"></script>
+</body>
+</html>
